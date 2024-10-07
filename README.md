@@ -104,7 +104,7 @@ data.groupby(['claim_status', 'author_ban_status']).agg(
      'shares_per_view': ['count', 'mean', 'median']})
 ```
 Final Results:
-![Alt text](https://raw.githubusercontent.com/FrankCoRa/PostreSQL_Cleaning/main/Findings.png)
+![Alt text](https://github.com/FrankCoRa/TidyingData_Python/blob/main/tidying_results.png)
 - Video performance and engagement: Videos from banned or under-review authors tend to attract significantly more views, likes, and shares compared to those by active authors. However, the engagement rate (likes, shares, and comments per view) is influenced more by the video’s claim status rather than the author’s ban status.
 - Claim vs. opinion videos: Claim videos consistently outperform opinion videos in terms of views, likes, and engagement metrics. This indicates that claim videos not only garner higher viewership but are also more positively received, generating more likes, comments, and shares compared to opinion-based content.
 - Engagement trends by author ban status: For claim videos, banned authors exhibit slightly higher likes/view and shares/view ratios than active or under-review authors. In contrast, for opinion videos, active and under-review authors achieve higher engagement rates across all metrics when compared to banned authors.
