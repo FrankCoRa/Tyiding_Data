@@ -66,7 +66,9 @@ data.groupby(['claim_status', 'author_ban_status']).count()[['#']]
 There are many more claim videos with banned authors than there are opinion videos with banned authors. This could mean a number of things, including the possibilities that:
 - Claim videos are more strictly policed than opinion videos
 - Authors must comply with a stricter set of rules if they post a claim than if they post an opinion
-Now we Continue investigating engagement levels, now focusing on 'author_ban_status'. Calculating the count, mean, and median of each author ban status.
+Now we Continue investigating engagement levels, now focusing on `author_ban_status`.
+
+Calculating the count, mean, and median of each author ban status.
 ```r
 data.groupby(['author_ban_status']).agg(
     {'video_view_count': ['mean', 'median'],
