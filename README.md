@@ -18,18 +18,18 @@ import numpy as np
 data = pd.read_csv("tiktok_dataset.csv")
 ```
 ## Understand the data
-- Use 'data.head()' to preview the first few rows of the dataset, allowing for an initial inspection of data structure.
-- Execute 'data.info()' to assess variable types, identify null values, and understand the overall composition of numeric and categorical data.
-- Apply 'data.describe()' to generate summary statistics, revealing key insights such as distributions, central tendency, and potential outliers in numeric variables.
+- Use `data.head()` to preview the first few rows of the dataset, allowing for an initial inspection of data structure.
+- Execute `data.info()` to assess variable types, identify null values, and understand the overall composition of numeric and categorical data.
+- Apply `data.describe()` to generate summary statistics, revealing key insights such as distributions, central tendency, and potential outliers in numeric variables.
 
-A good first step towards understanding the data might therefore be examining the 'claim_status' variable. Begin by determining how many videos there are for each different claim status.
+A good first step towards understanding the data might therefore be examining the `claim_status` variable. Begin by determining how many videos there are for each different claim status.
 ```r
 # What are the different values for claim status and how many of each are in the data?
 data['claim_status'].value_counts()
 ```
 The counts of each claim status are quite balanced:
-claim      9608
-opinion    9476
+- claim:      9608
+- opinion:    9476
 
 We used Boolean masking to filter the data according to claim status, then calculate the mean and median view counts for each claim status.
 ```r
@@ -37,6 +37,7 @@ We used Boolean masking to filter the data according to claim status, then calcu
 claims = data[data['claim_status'] == 'claim']
 print('Mean view count claims:', claims['video_view_count'].mean())
 print('Median view count claims:', claims['video_view_count'].median())
+
 # What is the average view count of videos with "opinion" status?
 opinions = data[data['claim_status'] == 'opinion']
 print('Mean view count opinions:', opinions['video_view_count'].mean())
@@ -54,13 +55,14 @@ Now , we calculate how many videos there are for each combination of categories 
 # Get counts for each group combination of claim status and author ban status
 data.groupby(['claim_status', 'author_ban_status']).count()[['#']]
 ```
-Claim Status	Author Ban Status	#
-Claim	Active	6,566
-Banned	1,439
-Under Review	1,603
-Opinion	Active	8,817
-Banned	196
-Under Review	463
+| Claim Status | Author Ban Status | #     |
+|--------------|-------------------|-------|
+| Claim        | Active             | 6,566 |
+|              | Banned             | 1,439 |
+|              | Under Review       | 1,603 |
+| Opinion      | Active             | 8,817 |
+|              | Banned             | 196   |
+|              | Under              | 463   |  
 
 There are many more claim videos with banned authors than there are opinion videos with banned authors. This could mean a number of things, including the possibilities that:
 - Claim videos are more strictly policed than opinion videos
@@ -94,14 +96,15 @@ data['comments_per_view'] = data['video_comment_count'] / data['video_view_count
 # Create a shares_per_view column
 data['shares_per_view'] = data['video_share_count'] / data['video_view_count']
 ```
-We used 'groupby()' to compile the information in each of the three newly created columns for each combination of categories of claim status and author ban status, then use 'agg()' to calculate the count, the mean, and the median of each group.
+We used `groupby()` to compile the information in each of the three newly created columns for each combination of categories of claim status and author ban status, then use `agg()` to calculate the count, the mean, and the median of each group.
 ```r
 data.groupby(['claim_status', 'author_ban_status']).agg(
     {'likes_per_view': ['count', 'mean', 'median'],
      'comments_per_view': ['count', 'mean', 'median'],
      'shares_per_view': ['count', 'mean', 'median']})
 ```
-
+Final Results:
+![Alt text](https://raw.githubusercontent.com/FrankCoRa/PostreSQL_Cleaning/main/Findings.png)
 - Video performance and engagement: Videos from banned or under-review authors tend to attract significantly more views, likes, and shares compared to those by active authors. However, the engagement rate (likes, shares, and comments per view) is influenced more by the video’s claim status rather than the author’s ban status.
 - Claim vs. opinion videos: Claim videos consistently outperform opinion videos in terms of views, likes, and engagement metrics. This indicates that claim videos not only garner higher viewership but are also more positively received, generating more likes, comments, and shares compared to opinion-based content.
 - Engagement trends by author ban status: For claim videos, banned authors exhibit slightly higher likes/view and shares/view ratios than active or under-review authors. In contrast, for opinion videos, active and under-review authors achieve higher engagement rates across all metrics when compared to banned authors.
