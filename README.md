@@ -7,7 +7,7 @@ The purpose of this project is to investigate and understand the data provided. 
 - Begin the process of EDA and reveal insights contained in the data
 - In-depth Exploratory Data Analysis
 ## Imports and data loading
-We Start by importing the packages that you will need to load and explore the dataset.
+We start by importing the packages that you will need to load and explore the dataset.
 
 Then, load the dataset into a dataframe. Creating a dataframe will help you conduct data manipulation, exploratory data analysis (EDA), and statistical activities.
 ```r
@@ -65,8 +65,9 @@ data.groupby(['claim_status', 'author_ban_status']).count()[['#']]
 
 There are many more claim videos with banned authors than there are opinion videos with banned authors. This could mean a number of things, including the possibilities that:
 - Claim videos are more strictly policed than opinion videos
-- Authors must comply with a stricter set of rules if they post a claim than if they post an opinion
-Now we Continue investigating engagement levels, now focusing on `author_ban_status`.
+- Authors must comply with a stricter set of rules if they post a claim than if they post an opinion.
+  
+Now we continue investigating engagement levels, now focusing on `author_ban_status`.
 
 Calculating the count, mean, and median of each author ban status.
 ```r
