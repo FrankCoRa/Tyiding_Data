@@ -2,13 +2,12 @@
 Cleaning and organizing Tiktok data using Python
 ## Understand the situation
 Prepare by reading in the data, viewing the data dictionary, and exploring the dataset to identify key variables for the stakeholder.
-The purpose of this project is to investigate and understand the data provided. This activity will:
-- Acquaint you with the data
+The purpose of this project is to investigate and understand the data provided. This activity will cover:
 - Compile summary information about the data
 - Begin the process of EDA and reveal insights contained in the data
-- Prepare you for more in-depth EDA, hypothesis testing, and statistical analysis
+- In-depth Exploratory Data Analysis
 ## Imports and data loading
-Start by importing the packages that you will need to load and explore the dataset.
+We Start by importing the packages that you will need to load and explore the dataset.
 
 Then, load the dataset into a dataframe. Creating a dataframe will help you conduct data manipulation, exploratory data analysis (EDA), and statistical activities.
 ```r
