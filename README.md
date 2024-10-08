@@ -1,7 +1,7 @@
 # TidyingData_Python
 Cleaning and organizing Tiktok data using Python
 ## Understand the situation
-Prepare by reading in the data, viewing the data dictionary, and exploring the dataset to identify key variables for the stakeholder.
+Prepare by reading in the data, viewing the data dictionary, and exploring the dataset to identify key variables for the stakeholders.
 The purpose of this project is to investigate and understand the data provided. This activity will cover:
 - Compile summary information about the data
 - Begin the process of EDA and reveal insights contained in the data
