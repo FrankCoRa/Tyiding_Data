@@ -1,4 +1,4 @@
-# TidyingData_Python
+# TidingData_Python
 Cleaning and organizing Tiktok data using Python
 ## Understand the situation
 After reading in the data, viewing the data dictionary, and exploring the dataset to identify key variables for the stakeholders.
